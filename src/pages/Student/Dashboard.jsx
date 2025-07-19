@@ -906,7 +906,7 @@ const StudentDashboard = () => {
 
 
             {cartItems.length === 0 ? (
-              <div className="text-left py-12">
+
               <div className="text-center py-12">
 
                 <ShoppingCart className="w-12 h-12 text-gray-400 mx-auto mb-4" />
@@ -1075,7 +1075,7 @@ const StudentDashboard = () => {
 
             {orders.length === 0 ? (
 
-              <div className="text-left py-12">
+              <div className="text-center py-12">
 
                 <Package className="w-12 h-12 text-gray-400 mx-auto mb-4" />
 
@@ -1233,7 +1233,6 @@ const StudentDashboard = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
 
-        </div>
                 <div>
 
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -1373,6 +1372,8 @@ const StudentDashboard = () => {
           </div>
 
         )}
+
+        </div>
 
       </main>
 
