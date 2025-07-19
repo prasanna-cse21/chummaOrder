@@ -674,8 +674,7 @@ const StudentDashboard = () => {
 
       {/* Main Content */}
 
-      <main className="w-full px-4 sm:px-6 lg:px-8 py-8 flex-1">
-        <div className="w-full">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
 
         {/* Menu Tab */}
 
@@ -741,11 +740,11 @@ const StudentDashboard = () => {
 
             {/* Menu Items Grid */}
 
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
               {filteredMenuItems.map((item) => (
 
-                <div key={item.id} className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
+                <div key={item.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
 
                   <div className="relative">
 
@@ -901,7 +900,7 @@ const StudentDashboard = () => {
 
           <div className="space-y-6">
 
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-left">Your Cart</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Your Cart</h2>
 
 
 
@@ -933,11 +932,11 @@ const StudentDashboard = () => {
 
               <div className="space-y-6">
 
-                <div className="w-full space-y-4">
+                <div className="space-y-4">
 
                   {cartItems.map((item) => (
 
-                    <div key={item.id} className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                    <div key={item.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
 
                       <div className="flex items-center space-x-4">
 
@@ -1023,7 +1022,7 @@ const StudentDashboard = () => {
 
 
 
-                <div className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
 
                   <div className="flex justify-between items-center text-xl font-bold mb-4">
 
@@ -1069,7 +1068,7 @@ const StudentDashboard = () => {
 
           <div className="space-y-6">
 
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-left">Your Orders</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Your Orders</h2>
 
 
 
@@ -1099,11 +1098,11 @@ const StudentDashboard = () => {
 
             ) : (
 
-              <div className="w-full space-y-4">
+              <div className="space-y-4">
 
                 {orders.map((order) => (
 
-                  <div key={order.id} className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                  <div key={order.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
 
                     <div className="flex justify-between items-start mb-4">
 
@@ -1199,11 +1198,11 @@ const StudentDashboard = () => {
 
           <div className="space-y-6">
 
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-left">Profile</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Profile</h2>
 
             
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 w-full">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
 
               <div className="flex items-start space-x-4 mb-6">
 
@@ -1231,7 +1230,7 @@ const StudentDashboard = () => {
 
 
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <div>
 
@@ -1247,7 +1246,7 @@ const StudentDashboard = () => {
 
                     value={user?.full_name || ''}
 
-                    readOnly
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1269,7 +1268,7 @@ const StudentDashboard = () => {
 
                     value={user?.email || ''}
 
-                    readOnly
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1291,7 +1290,7 @@ const StudentDashboard = () => {
 
                     value="Student"
 
-                    readOnly
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1313,7 +1312,7 @@ const StudentDashboard = () => {
 
                     value={user?.registration_number || 'Not provided'}
 
-                    readOnly
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1335,7 +1334,7 @@ const StudentDashboard = () => {
 
                     value={user?.mobile_number || 'Not provided'}
 
-                    readOnly
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1357,7 +1356,7 @@ const StudentDashboard = () => {
 
                     value={user?.created_at ? new Date(user.created_at).toLocaleDateString() : 'Not available'}
 
-                    readOnly
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1374,7 +1373,6 @@ const StudentDashboard = () => {
         )}
 
         </div>
-
       </main>
 
 

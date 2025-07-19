@@ -424,233 +424,234 @@ const StaffDashboard = () => {
       ))}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 flex-1">
-        {/* Tabs */}
-        <div className="mb-8">
-          <nav className="flex space-x-8">
-            <button
-              onClick={() => setActiveTab('orders')}
-              className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors duration-200 ${
-                activeTab === 'orders'
-                  ? 'border-emerald-500 text-emerald-400'
-                  : 'border-transparent text-gray-600 dark:text-gray-500 hover:text-gray-800 dark:hover:text-gray-300 hover:border-gray-400'
-              }`}
-            >
-              Orders Management
-            </button>
-            <button
-              onClick={() => setActiveTab('menu')}
-              className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors duration-200 ${
-                activeTab === 'menu'
-                  ? 'border-emerald-500 text-emerald-400'
-                  : 'border-transparent text-gray-600 dark:text-gray-500 hover:text-gray-800 dark:hover:text-gray-300 hover:border-gray-400'
-              }`}
-            >
-              Menu Management
-            </button>
-          </nav>
-        </div>
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-8 flex-1">
+          {/* Tabs */}
+          <div className="mb-8">
+            <nav className="flex space-x-8">
+              <button
+                onClick={() => setActiveTab('orders')}
+                className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors duration-200 ${
+                  activeTab === 'orders'
+                    ? 'border-emerald-500 text-emerald-400'
+                    : 'border-transparent text-gray-600 dark:text-gray-500 hover:text-gray-800 dark:hover:text-gray-300 hover:border-gray-400'
+                }`}
+              >
+                Orders Management
+              </button>
+              <button
+                onClick={() => setActiveTab('menu')}
+                className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors duration-200 ${
+                  activeTab === 'menu'
+                    ? 'border-emerald-500 text-emerald-400'
+                    : 'border-transparent text-gray-600 dark:text-gray-500 hover:text-gray-800 dark:hover:text-gray-300 hover:border-gray-400'
+                }`}
+              >
+                Menu Management
+              </button>
+            </nav>
+          </div>
 
-        {/* Orders Tab */}
-        {activeTab === 'orders' && (
-          <div className="space-y-8">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white text-left">Orders for {user?.full_name}</h2>
-              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                <div className="glass-morphism px-4 py-2 rounded-lg border border-white/20">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Total Orders: </span>
-                  <span className="font-semibold text-gray-800 dark:text-white">{orders.length}</span>
-                </div>
-                <div className="glass-morphism px-4 py-2 rounded-lg border border-white/20">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Pending: </span>
-                  <span className="font-semibold text-amber-400">
-                    {orders.filter(o => o.status === 'pending').length}
-                  </span>
+          {/* Orders Tab */}
+          {activeTab === 'orders' && (
+            <div className="space-y-8">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white text-left">Orders for {user?.full_name}</h2>
+                <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                  <div className="glass-morphism px-4 py-2 rounded-lg border border-white/20">
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Total Orders: </span>
+                    <span className="font-semibold text-gray-800 dark:text-white">{orders.length}</span>
+                  </div>
+                  <div className="glass-morphism px-4 py-2 rounded-lg border border-white/20">
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Pending: </span>
+                    <span className="font-semibold text-amber-400">
+                      {orders.filter(o => o.status === 'pending').length}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {orders.length === 0 ? (
-              <div className="text-left py-12">
-                <div className="w-16 h-16 glass-morphism rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
-                  <Clock className="w-8 h-8 text-gray-500 dark:text-gray-400" />
+              {orders.length === 0 ? (
+                <div className="text-left py-12">
+                  <div className="w-16 h-16 glass-morphism rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
+                    <Clock className="w-8 h-8 text-gray-500 dark:text-gray-400" />
+                  </div>
+                  <h3 className="text-lg font-medium text-gray-800 dark:text-white mb-2">No orders yet</h3>
+                  <p className="text-gray-600 dark:text-gray-400">Orders for {user?.full_name} will appear here when students place them</p>
                 </div>
-                <h3 className="text-lg font-medium text-gray-800 dark:text-white mb-2">No orders yet</h3>
-                <p className="text-gray-600 dark:text-gray-400">Orders for {user?.full_name} will appear here when students place them</p>
-              </div>
-            ) : (
-              <div className="w-full grid gap-6">
-                {orders.map((order) => (
-                  <div key={order.id} className="w-full glass-morphism-strong rounded-xl p-6">
-                    <div className="flex flex-col lg:flex-row justify-between items-start mb-4 gap-4">
-                      <div>
-                        <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
-                          Order #{order.id.slice(0, 8)}
-                        </h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                          {formatStudentInfo(order.user)}
-                        </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-500">
-                          {new Date(order.created_at).toLocaleDateString()} at{' '}
-                          {new Date(order.created_at).toLocaleTimeString()}
-                        </p>
-                        {/* Mobile Price - Left aligned */}
-                        <p className="text-xl font-bold gradient-text md:hidden mt-2">₹{order.total_amount}</p>
-                      </div>
-                      <div className="hidden md:block text-right">
-                        <p className="text-xl font-bold gradient-text">₹{order.total_amount}</p>
-                        <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(order.status)}`}>
+              ) : (
+                <div className="w-full grid gap-6">
+                  {orders.map((order) => (
+                    <div key={order.id} className="w-full glass-morphism-strong rounded-xl p-6">
+                      <div className="flex flex-col lg:flex-row justify-between items-start mb-4 gap-4">
+                        <div>
+                          <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
+                            Order #{order.id.slice(0, 8)}
+                          </h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                            {formatStudentInfo(order.user)}
+                          </p>
+                          <p className="text-sm text-gray-600 dark:text-gray-500">
+                            {new Date(order.created_at).toLocaleDateString()} at{' '}
+                            {new Date(order.created_at).toLocaleTimeString()}
+                          </p>
+                          {/* Mobile Price - Left aligned */}
+                          <p className="text-xl font-bold gradient-text md:hidden mt-2">₹{order.total_amount}</p>
+                        </div>
+                        <div className="hidden md:block text-right">
+                          <p className="text-xl font-bold gradient-text">₹{order.total_amount}</p>
+                          <div className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(order.status)}`}>
+                            {getStatusIcon(order.status)}
+                            <span className="ml-1 capitalize">{order.status}</span>
+                          </div>
+                        </div>
+                        {/* Mobile Status - Left aligned */}
+                        <div className={`md:hidden inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(order.status)} mt-2`}>
                           {getStatusIcon(order.status)}
                           <span className="ml-1 capitalize">{order.status}</span>
                         </div>
                       </div>
-                      {/* Mobile Status - Left aligned */}
-                      <div className={`md:hidden inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(order.status)} mt-2`}>
-                        {getStatusIcon(order.status)}
-                        <span className="ml-1 capitalize">{order.status}</span>
+
+                      <div className="mb-4">
+                        <h5 className="font-medium text-gray-800 dark:text-white mb-2">Items from {user?.full_name}:</h5>
+                        <div className="space-y-2">
+                          {order.order_items.map((item) => (
+                            <div key={item.id} className="flex justify-between items-center glass-morphism p-2 rounded border border-white/10">
+                              <span className="text-gray-600 dark:text-gray-300">
+                                {item.menu_item.name} x {item.quantity}
+                              </span>
+                              <span className="font-medium text-gray-800 dark:text-white">₹{item.price * item.quantity}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        <button
+                          onClick={() => updateOrderStatus(order.id, 'processing')}
+                          disabled={order.status !== 'pending' || isOrderUpdating(order.id, 'processing')}
+                          className="px-4 py-2 modern-button text-black dark:text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm"
+                        >
+                          {isOrderUpdating(order.id, 'processing') ? 'Updating...' : 'Start Processing'}
+                        </button>
+                        <button
+                          onClick={() => updateOrderStatus(order.id, 'ready')}
+                          disabled={order.status !== 'processing' || isOrderUpdating(order.id, 'ready')}
+                          className="px-4 py-2 text-black dark:text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm"
+                          style={{ 
+                            background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%)',
+                            boxShadow: '0 0 20px rgba(34, 197, 94, 0.4)' 
+                          }}
+                        >
+                          {isOrderUpdating(order.id, 'ready') ? 'Updating...' : 'Mark Ready'}
+                        </button>
+                        <button
+                          onClick={() => updateOrderStatus(order.id, 'completed')}
+                          disabled={order.status !== 'ready' || isOrderUpdating(order.id, 'completed')}
+                          className="px-4 py-2 glass-morphism hover:bg-white/10 text-black dark:text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm border border-white/20"
+                        >
+                          {isOrderUpdating(order.id, 'completed') ? 'Updating...' : 'Complete'}
+                        </button>
                       </div>
                     </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
 
-                    <div className="mb-4">
-                      <h5 className="font-medium text-gray-800 dark:text-white mb-2">Items from {user?.full_name}:</h5>
-                      <div className="space-y-2">
-                        {order.order_items.map((item) => (
-                          <div key={item.id} className="flex justify-between items-center glass-morphism p-2 rounded border border-white/10">
-                            <span className="text-gray-600 dark:text-gray-300">
-                              {item.menu_item.name} x {item.quantity}
-                            </span>
-                            <span className="font-medium text-gray-800 dark:text-white">₹{item.price * item.quantity}</span>
-                          </div>
-                        ))}
+          {/* Menu Tab */}
+          {activeTab === 'menu' && (
+            <div className="space-y-6">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white text-left">Menu Items for {user?.full_name}</h2>
+                <button
+                  onClick={() => {
+                    setEditingItem(null);
+                    setIsEditModalOpen(true);
+                  }}
+                  className="flex items-center space-x-2 text-white px-4 py-2 rounded-lg transition-all duration-200"
+                  style={{ 
+                    background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.9) 0%, rgba(5, 150, 105, 0.9) 100%)',
+                    boxShadow: '0 0 20px rgba(16, 185, 129, 0.4)' 
+                  }}
+                >
+                  <Plus className="w-5 h-5" />
+                  <span>Add New Item</span>
+                </button>
+              </div>
+
+              <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {menuItems.map((item) => (
+                  <div key={item.id} className="w-full glass-card rounded-xl overflow-hidden">
+                    <img
+                      src={item.image_url}
+                      alt={item.name}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-6">
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{item.name}</h3>
+                        <span className="text-xl font-bold cosmic-text">₹{item.price}</span>
                       </div>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      <button
-                        onClick={() => updateOrderStatus(order.id, 'processing')}
-                        disabled={order.status !== 'pending' || isOrderUpdating(order.id, 'processing')}
-                        className="px-4 py-2 modern-button text-black dark:text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm"
-                      >
-                        {isOrderUpdating(order.id, 'processing') ? 'Updating...' : 'Start Processing'}
-                      </button>
-                      <button
-                        onClick={() => updateOrderStatus(order.id, 'ready')}
-                        disabled={order.status !== 'processing' || isOrderUpdating(order.id, 'ready')}
-                        className="px-4 py-2 text-black dark:text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm"
-                        style={{ 
-                          background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%)',
-                          boxShadow: '0 0 20px rgba(34, 197, 94, 0.4)' 
-                        }}
-                      >
-                        {isOrderUpdating(order.id, 'ready') ? 'Updating...' : 'Mark Ready'}
-                      </button>
-                      <button
-                        onClick={() => updateOrderStatus(order.id, 'completed')}
-                        disabled={order.status !== 'ready' || isOrderUpdating(order.id, 'completed')}
-                        className="px-4 py-2 glass-morphism hover:bg-white/10 text-black dark:text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm border border-white/20"
-                      >
-                        {isOrderUpdating(order.id, 'completed') ? 'Updating...' : 'Complete'}
-                      </button>
+                      <p className="text-gray-600 dark:text-gray-400 mb-4">{item.description}</p>
+                      <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-500 mb-2">
+                        <span className={`font-medium ${
+                          item.quantity_available <= 0 
+                            ? 'text-red-600 dark:text-red-400' 
+                            : item.quantity_available <= 5 
+                            ? 'text-yellow-600 dark:text-yellow-400' 
+                            : 'text-green-600 dark:text-green-400'
+                        }`}>
+                          Available: {item.quantity_available}
+                          {item.quantity_available <= 0 && ' (Out of Stock)'}
+                          {item.quantity_available > 0 && item.quantity_available <= 5 && ' (Low Stock)'}
+                        </span>
+                        <span>Serves: {item.serves}</span>
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                        <span className="font-medium">Canteen:</span> {item.canteen_name}
+                      </div>
+                      <div className="flex space-x-2">
+                        <button
+                          onClick={() => {
+                            setEditingItem(item);
+                            setIsEditModalOpen(true);
+                          }}
+                          className="flex-1 flex items-center justify-center space-x-2 modern-button text-white px-4 py-2 rounded-lg transition-all duration-200"
+                        >
+                          <Edit className="w-4 h-4" />
+                          <span>Edit</span>
+                        </button>
+                        <button
+                          onClick={() => handleDeleteMenuItem(item.id)}
+                          disabled={deletingMenuItem === item.id}
+                          className="flex-1 flex items-center justify-center space-x-2 text-white px-4 py-2 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                          style={{ 
+                            background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.9) 0%, rgba(220, 38, 38, 0.9) 100%)',
+                            boxShadow: '0 0 20px rgba(239, 68, 68, 0.4)' 
+                          }}
+                        >
+                          <Trash2 className="w-4 h-4" />
+                          <span>{deletingMenuItem === item.id ? 'Deleting...' : 'Delete'}</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
-            )}
-          </div>
-        )}
 
-        {/* Menu Tab */}
-        {activeTab === 'menu' && (
-          <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white text-left">Menu Items for {user?.full_name}</h2>
-              <button
-                onClick={() => {
-                  setEditingItem(null);
-                  setIsEditModalOpen(true);
-                }}
-                className="flex items-center space-x-2 text-white px-4 py-2 rounded-lg transition-all duration-200"
-                style={{ 
-                  background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.9) 0%, rgba(5, 150, 105, 0.9) 100%)',
-                  boxShadow: '0 0 20px rgba(16, 185, 129, 0.4)' 
-                }}
-              >
-                <Plus className="w-5 h-5" />
-                <span>Add New Item</span>
-              </button>
-            </div>
-
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {menuItems.map((item) => (
-                <div key={item.id} className="w-full glass-card rounded-xl overflow-hidden">
-                  <img
-                    src={item.image_url}
-                    alt={item.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{item.name}</h3>
-                      <span className="text-xl font-bold cosmic-text">₹{item.price}</span>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">{item.description}</p>
-                    <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-500 mb-2">
-                      <span className={`font-medium ${
-                        item.quantity_available <= 0 
-                          ? 'text-red-600 dark:text-red-400' 
-                          : item.quantity_available <= 5 
-                          ? 'text-yellow-600 dark:text-yellow-400' 
-                          : 'text-green-600 dark:text-green-400'
-                      }`}>
-                        Available: {item.quantity_available}
-                        {item.quantity_available <= 0 && ' (Out of Stock)'}
-                        {item.quantity_available > 0 && item.quantity_available <= 5 && ' (Low Stock)'}
-                      </span>
-                      <span>Serves: {item.serves}</span>
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                      <span className="font-medium">Canteen:</span> {item.canteen_name}
-                    </div>
-                    <div className="flex space-x-2">
-                      <button
-                        onClick={() => {
-                          setEditingItem(item);
-                          setIsEditModalOpen(true);
-                        }}
-                        className="flex-1 flex items-center justify-center space-x-2 modern-button text-white px-4 py-2 rounded-lg transition-all duration-200"
-                      >
-                        <Edit className="w-4 h-4" />
-                        <span>Edit</span>
-                      </button>
-                      <button
-                        onClick={() => handleDeleteMenuItem(item.id)}
-                        disabled={deletingMenuItem === item.id}
-                        className="flex-1 flex items-center justify-center space-x-2 text-white px-4 py-2 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                        style={{ 
-                          background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.9) 0%, rgba(220, 38, 38, 0.9) 100%)',
-                          boxShadow: '0 0 20px rgba(239, 68, 68, 0.4)' 
-                        }}
-                      >
-                        <Trash2 className="w-4 h-4" />
-                        <span>{deletingMenuItem === item.id ? 'Deleting...' : 'Delete'}</span>
-                      </button>
-                    </div>
+              {menuItems.length === 0 && (
+                <div className="text-left py-12">
+                  <div className="w-16 h-16 glass-morphism rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
+                    <Plus className="w-8 h-8 text-gray-500 dark:text-gray-400" />
                   </div>
+                  <h3 className="text-lg font-medium text-gray-800 dark:text-white mb-2">No menu items yet</h3>
+                  <p className="text-gray-600 dark:text-gray-400">Add your first menu item for {user?.full_name} to get started</p>
                 </div>
-              ))}
+              )}
             </div>
-
-            {menuItems.length === 0 && (
-              <div className="text-left py-12">
-                <div className="w-16 h-16 glass-morphism rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
-                  <Plus className="w-8 h-8 text-gray-500 dark:text-gray-400" />
-                </div>
-                <h3 className="text-lg font-medium text-gray-800 dark:text-white mb-2">No menu items yet</h3>
-                <p className="text-gray-600 dark:text-gray-400">Add your first menu item for {user?.full_name} to get started</p>
-              </div>
-            )}
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       <Footer />
