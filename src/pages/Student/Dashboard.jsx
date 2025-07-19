@@ -1245,8 +1245,8 @@ const StudentDashboard = () => {
                     type="text"
 
                     value={user?.full_name || ''}
-
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
+                    readOnly
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1267,8 +1267,8 @@ const StudentDashboard = () => {
                     type="email"
 
                     value={user?.email || ''}
-
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
+                    readOnly
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1289,8 +1289,8 @@ const StudentDashboard = () => {
                     type="text"
 
                     value="Student"
-
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
+                    readOnly
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1311,8 +1311,8 @@ const StudentDashboard = () => {
                     type="text"
 
                     value={user?.registration_number || 'Not provided'}
-
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
+                    readOnly
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1333,8 +1333,8 @@ const StudentDashboard = () => {
                     type="text"
 
                     value={user?.mobile_number || 'Not provided'}
-
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
+                    readOnly
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1355,8 +1355,8 @@ const StudentDashboard = () => {
                     type="text"
 
                     value={user?.created_at ? new Date(user.created_at).toLocaleDateString() : 'Not available'}
-
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
+                    readOnly
 
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-left"
 
@@ -1372,7 +1372,6 @@ const StudentDashboard = () => {
 
         )}
 
-        </div>
       </main>
 
 
