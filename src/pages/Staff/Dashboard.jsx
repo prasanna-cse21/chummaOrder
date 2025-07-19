@@ -424,6 +424,7 @@ const StaffDashboard = () => {
       ))}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 flex-1">
         {/* Tabs */}
         <div className="mb-8">
           <nav className="flex space-x-8">
@@ -454,7 +455,7 @@ const StaffDashboard = () => {
         {activeTab === 'orders' && (
           <div className="space-y-8">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Orders for {user?.full_name}</h2>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white text-left">Orders for {user?.full_name}</h2>
               <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                 <div className="glass-morphism px-4 py-2 rounded-lg border border-white/20">
                   <span className="text-sm text-gray-600 dark:text-gray-400">Total Orders: </span>
@@ -470,7 +471,7 @@ const StaffDashboard = () => {
             </div>
 
             {orders.length === 0 ? (
-              <div className="text-center py-12">
+              <div className="text-left py-12">
                 <div className="w-16 h-16 glass-morphism rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
                   <Clock className="w-8 h-8 text-gray-500 dark:text-gray-400" />
                 </div>
@@ -478,9 +479,9 @@ const StaffDashboard = () => {
                 <p className="text-gray-600 dark:text-gray-400">Orders for {user?.full_name} will appear here when students place them</p>
               </div>
             ) : (
-              <div className="grid gap-6">
+              <div className="w-full grid gap-6">
                 {orders.map((order) => (
-                  <div key={order.id} className="glass-morphism-strong rounded-xl p-6">
+                  <div key={order.id} className="w-full glass-morphism-strong rounded-xl p-6">
                     <div className="flex flex-col lg:flex-row justify-between items-start mb-4 gap-4">
                       <div>
                         <h4 className="text-lg font-semibold text-gray-800 dark:text-white">
@@ -562,7 +563,7 @@ const StaffDashboard = () => {
         {activeTab === 'menu' && (
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Menu Items for {user?.full_name}</h2>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white text-left">Menu Items for {user?.full_name}</h2>
               <button
                 onClick={() => {
                   setEditingItem(null);
@@ -579,9 +580,9 @@ const StaffDashboard = () => {
               </button>
             </div>
 
-            <div className="responsive-grid">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {menuItems.map((item) => (
-                <div key={item.id} className="glass-card rounded-xl overflow-hidden">
+                <div key={item.id} className="w-full glass-card rounded-xl overflow-hidden">
                   <img
                     src={item.image_url}
                     alt={item.name}
@@ -640,7 +641,7 @@ const StaffDashboard = () => {
             </div>
 
             {menuItems.length === 0 && (
-              <div className="text-center py-12">
+              <div className="text-left py-12">
                 <div className="w-16 h-16 glass-morphism rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
                   <Plus className="w-8 h-8 text-gray-500 dark:text-gray-400" />
                 </div>

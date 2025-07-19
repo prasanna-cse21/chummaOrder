@@ -675,6 +675,7 @@ const StudentDashboard = () => {
       {/* Main Content */}
 
       <main className="w-full px-4 sm:px-6 lg:px-8 py-8 flex-1">
+        <div className="w-full">
 
         {/* Menu Tab */}
 
@@ -740,11 +741,11 @@ const StudentDashboard = () => {
 
             {/* Menu Items Grid */}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
               {filteredMenuItems.map((item) => (
 
-                <div key={item.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
+                <div key={item.id} className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
 
                   <div className="relative">
 
@@ -900,12 +901,12 @@ const StudentDashboard = () => {
 
           <div className="space-y-6">
 
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Your Cart</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-left">Your Cart</h2>
 
 
 
             {cartItems.length === 0 ? (
-
+              <div className="text-left py-12">
               <div className="text-center py-12">
 
                 <ShoppingCart className="w-12 h-12 text-gray-400 mx-auto mb-4" />
@@ -932,11 +933,11 @@ const StudentDashboard = () => {
 
               <div className="space-y-6">
 
-                <div className="space-y-4">
+                <div className="w-full space-y-4">
 
                   {cartItems.map((item) => (
 
-                    <div key={item.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                    <div key={item.id} className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
 
                       <div className="flex items-center space-x-4">
 
@@ -1022,7 +1023,7 @@ const StudentDashboard = () => {
 
 
 
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <div className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
 
                   <div className="flex justify-between items-center text-xl font-bold mb-4">
 
@@ -1068,13 +1069,13 @@ const StudentDashboard = () => {
 
           <div className="space-y-6">
 
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Your Orders</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-left">Your Orders</h2>
 
 
 
             {orders.length === 0 ? (
 
-              <div className="text-center py-12">
+              <div className="text-left py-12">
 
                 <Package className="w-12 h-12 text-gray-400 mx-auto mb-4" />
 
@@ -1098,11 +1099,11 @@ const StudentDashboard = () => {
 
             ) : (
 
-              <div className="space-y-4">
+              <div className="w-full space-y-4">
 
                 {orders.map((order) => (
 
-                  <div key={order.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                  <div key={order.id} className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
 
                     <div className="flex justify-between items-start mb-4">
 
@@ -1232,6 +1233,7 @@ const StudentDashboard = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
 
+        </div>
                 <div>
 
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
